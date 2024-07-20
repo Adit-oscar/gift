@@ -6,6 +6,8 @@ let audio = document.getElementById("audio");
 
 let isPlay = true;
 
+audio.play();
+
 control.addEventListener("click", function () {
   audio.pause();
 

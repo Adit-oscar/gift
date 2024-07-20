@@ -31,8 +31,8 @@ p::after {
   position: absolute;
   height: 50px;
   width: 50px;
-  bottom: 5vh;
-  right: 5vw;
+  bottom: 12vh;
+  right: 8vw;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 50%;
   display: flex;
@@ -54,5 +54,20 @@ i{
   }
   to {
     opacity: 100;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  p {
+    font-size: .8rem;
+  }
+
+  .control {
+    height: 35px;
+    width: 35px;
+  }
+
+  i {
+    font-size: 20px;
   }
 }
