@@ -6,8 +6,6 @@ let audio = document.getElementById("audio");
 
 let isPlay = true;
 
-audio.play();
-
 control.addEventListener("click", function () {
   audio.pause();
 
@@ -62,6 +60,26 @@ function lirikLagu() {
   }
 }
 
-lirikLagu();
-
 // -- End Baris mengangani auto typing text --
+
+// -- Start Handle Buka Cover --
+
+const btnBuka = document.getElementById("buka");
+
+btnBuka.addEventListener("click", () => {
+  const cover = document.querySelector(".cover");
+
+  setTimeout(() => {
+    cover.style.transform = "translateY(100%)";
+  }, 1000);
+
+  setTimeout(() => {
+    audio.play();
+  }, 1200);
+
+  setTimeout(() => {
+    lirikLagu();
+  }, 1600);
+});
+
+// -- End Handle Buka Cover --
