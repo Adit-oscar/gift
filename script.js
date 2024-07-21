@@ -66,11 +66,13 @@ function lirikLagu() {
 
 const btnBuka = document.getElementById("buka");
 
-btnBuka.addEventListener("click", () => {
-  const cover = document.querySelector(".cover");
+btnBuka.addEventListener("click", function () {
+  const coverKiri = document.querySelector(".cover-kiri");
+  const coverKanan = document.querySelector(".cover-kanan");
 
   setTimeout(() => {
-    cover.style.transform = "translateY(100%)";
+    coverKiri.style.transform = "translateX(-100%)";
+    coverKanan.style.transform = "translateX(120%)";
   }, 1000);
 
   setTimeout(() => {
