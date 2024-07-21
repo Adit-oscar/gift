@@ -49,20 +49,16 @@
   top: 50%;
   bottom: 50%;
   transform: translate(-50%,-50%);
-  height: max-content;
-  width: max-content;
   font-size: 20px;
   padding-inline: 15px;
   padding-block: 5px;
   background: linear-gradient(to right, rgb(121, 36, 50), rgb(121, 8, 67));
-  border: none;
   border-radius: 5px;
   text-transform: capitalize;
   color: white;
   border: 2px solid white;
-  box-shadow: 0 0px 5px white;
+  box-shadow: 0 0px 5 px white;
   cursor: pointer;
-  z-index: 5;
 }
 
 p::after {
