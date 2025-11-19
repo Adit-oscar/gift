@@ -61,8 +61,29 @@
   cursor: pointer;
 }
 
+.heart {
+  position: absolute;
+  font-size: 1em;
+  color: #ff69b4;
+  animation: grow linear infinite;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 1;
+}
+
+#lirik > p {
+  font-family: cursive;
+  text-align: center;
+  line-height: 2rem;
+  user-select: none;
+}
+
+p {
+  user-select: none;
+}
+
 p::after {
-  content: ".";
+  content: "";
   background-color: rgb(255, 255, 255);
   width: 3px;
   color: transparent;
@@ -86,6 +107,7 @@ p::after {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  overflow: hidden;
 }
 
 i{
@@ -93,6 +115,11 @@ i{
   font-size: 30px;
   color:rgb(90, 4, 4);
   user-select: none;
+}
+
+@keyframes grow {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 @keyframes klip {

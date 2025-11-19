@@ -27,37 +27,79 @@ control.addEventListener("click", function () {
 
 const lirik = document.getElementById("lirik");
 
-const lagu = ["Happy Birthday Sayangku 😘", "Selamat menua 😊"];
+const lagu = [
+  "Happy Birthday Sayangku 😘",
+  "Selamat menua 😊",
+  "Semoga bahagia selalu 💖",
+  "Tetap sehat dan sukses!",
+];
 
-let wordIndex = 0;
-let wordChar = 0;
-let isNext = false;
+let wordIndex = 0; // indeks elemen array lagu
+let charIndex = 0; // indeks karakter dalam elemen lagu
+let isTyping = true; // status mengetik atau menunggu lanjut
 
 function lirikLagu() {
-  const currentWord = lagu[wordIndex];
-  const currentChar = currentWord.substring(0, wordChar);
+  if (wordIndex >= lagu.length) {
+    // Semua baris sudah selesai, hentikan animasi
+    return;
+  }
 
-  lirik.textContent = currentChar;
+  // Ambil teks paragraf saat ini
+  const currentLine = lagu[wordIndex];
 
-  if (wordIndex < lagu.length) {
-    if (!isNext && wordChar < currentWord.length) {
-      wordChar++;
-      setTimeout(lirikLagu, 200);
-    } else if (isNext && wordChar > 0) {
-      setTimeout(() => {
-        wordChar--;
-      }, 1500);
+  if (isTyping) {
+    // Jika sedang mengetik, tambahkan satu karakter ke paragraf saat ini
+    charIndex++;
+
+    // Ambil substring sampai karakter ke charIndex
+    const typedText = currentLine.substring(0, charIndex);
+
+    // Perbarui atau buat paragraf baru pada container `lirik`
+    // Jika paragraf untuk indeks ini belum ada, buat; jika sudah ada update isinya
+    let currentP = lirik.querySelectorAll("p")[wordIndex];
+    if (!currentP) {
+      currentP = document.createElement("p");
+      // Style atau class bisa ditambahkan di sini jika diinginkan
+      lirik.appendChild(currentP);
+    }
+    currentP.textContent = typedText;
+
+    if (charIndex < currentLine.length) {
+      // lanjut mengetik karakter berikutnya
       setTimeout(lirikLagu, 200);
     } else {
-      isNext = !isNext;
-      wordIndex = !isNext ? wordIndex + 1 : wordIndex;
-      setTimeout(lirikLagu, 300);
+      // selesai mengetik satu paragraf, tunggu 2 detik lalu lanjut baris berikutnya
+      isTyping = false;
+      setTimeout(lirikLagu, 2000);
     }
+  } else {
+    // Berhenti mengetik dan pindah ke baris selanjutnya
+    wordIndex++;
+    charIndex = 0;
+    isTyping = true;
+    setTimeout(lirikLagu, 500);
   }
+}
 
-  if (wordIndex == lagu.length) {
-    wordIndex = 0;
-  }
+function heart() {
+  // Ambil semua elemen hati
+  const hearts = document.querySelectorAll(".heart");
+  hearts.forEach((heart) => {
+    // Posisi horizontal acak (0% - 100% untuk penuh halaman)
+    const randomLeft = Math.random() * 100 + "%";
+    // Posisi vertikal acak (0% - 100% untuk penuh halaman)
+    const randomTop = Math.random() * 100 + "%";
+    // Durasi acak (2-5 detik)
+    const randomDuration = Math.random() * 3 + 2 + "s";
+    // Delay acak (0-3 detik)
+    const randomDelay = Math.random() * 3 + "s";
+
+    heart.style.left = randomLeft;
+    heart.style.top = randomTop;
+    heart.style.animationDuration = randomDuration;
+    heart.style.animationDelay = randomDelay;
+    heart.style.opacity = "1"; // Aktifkan animasi
+  });
 }
 
 // -- End Baris mengangani auto typing text --
@@ -81,6 +123,7 @@ btnBuka.addEventListener("click", function () {
 
   setTimeout(() => {
     lirikLagu();
+    heart();
   }, 1600);
 });
 
