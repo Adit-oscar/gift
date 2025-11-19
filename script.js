@@ -28,10 +28,14 @@ control.addEventListener("click", function () {
 const lirik = document.getElementById("lirik");
 
 const lagu = [
-  "Happy Birthday Sayangku 😘",
-  "Selamat menua 😊",
-  "Semoga bahagia selalu 💖",
-  "Tetap sehat dan sukses!",
+  "Slamat Ulang Tahun Sayangku 😘",
+  "Selamat Bertambah Usia 😊",
+  "Semoga Bahagia Selalu",
+  "Semoga Sehat Selalu, Panjang Umur, Dilancarkan Segala Urusanni",
+  "Dan Semoga Cita-Citani Tercapai Sayang 💖",
+  "",
+  "",
+  "- Aditiya -",
 ];
 
 let wordIndex = 0; // indeks elemen array lagu

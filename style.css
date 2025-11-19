@@ -71,10 +71,14 @@
   z-index: 1;
 }
 
+#lirik {
+  position: relative;
+  z-index: 100;
+}
+
 #lirik > p {
   font-family: cursive;
   text-align: center;
-  line-height: 2rem;
   user-select: none;
 }
 
@@ -133,7 +137,7 @@ i{
 
 @media screen and (max-width: 640px) {
   p {
-    font-size: .8rem;
+    font-size: 1rem;
   }
 
   .control {
